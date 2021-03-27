@@ -6,14 +6,10 @@ import json
 def index(request):
     return render(request, 'nutrition/home.html')
 
-
-def success(request):
-    return render(request, 'nutrition/success.html')
-
 def typefile(request):
     return render(request, 'nutrition/typefile.html')
 
-def results(request):
+def success(request):
     food_list = ['apple', 'orange', 'grapefruit']
     food_nutrition = {}
     
@@ -47,6 +43,6 @@ def results(request):
             'carbs': carbs, 'protein': protein, 'fat': fat, 'sugar': sugar}
         print(food_nutrition[food_name])
     
-    return render(request, 'nutrition/results.html', 
+    return render(request, 'nutrition/success.html', 
         {'food_nutrition': food_nutrition})
 
