@@ -9,6 +9,9 @@ def index(request):
 def typefile(request):
     return render(request, 'nutrition/typefile.html')
 
+def home(request):
+    return render(request, 'nutrition/home.html')
+
 def success(request):
     food_list = ['apple', 'orange', 'grapefruit']
     food_nutrition = {}

@@ -1,0 +1,121 @@
+.navbar {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav {
+    vertical-align: auto;
+}
+
+.navbar-brand {
+    font-size: xx-large;
+    color: black;
+    font-style:italic;
+}
+.color-logo {
+    color:blue;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.btn {
+    background-color: white;
+    color: blue;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    border-color: blue;
+    border-style: solid;
+    border: 50%;
+    
+}
+
+.nav-link {
+    color: black;
+    font-weight:500;
+}
+.nav-link:hover{
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: blue;
+    text-underline-offset: 25%;
+    text-decoration-thickness: 10%;
+}
+
+.navbar-brand:hover{
+    color: black;
+}
+
+.btn:hover{
+    background-color: blue;
+    border-color: blue;
+}
+
+.slogan {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    font-size: 300%;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.info-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight:500;
+    text-decoration: none;
+    color: black;
+    font-size: 150%;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+.main-upload {
+    font-family: 'Open Sans', sans-serif;
+    font-weight:bold;
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+.btn-default{
+    margin-left: 5%;
+    margin-top: 3%;
+    background-color: blue;
+    color: white;
+    font-size: auto;
+    width: 100%;
+    height: 100%;
+
+}
+
+.btn-default:hover {
+    background-color: white;
+    color: blue;
+}
+
+.type-button {
+    border-color: black;
+    color: black;
+    margin-top: 3%;
+    width: 100%;
+    height: 100%;
+    font-size: auto;
+    
+}
+
+.type-button:hover{
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.button-row {
+    margin-left: 3%;
+    margin-top: 3%;
+}
