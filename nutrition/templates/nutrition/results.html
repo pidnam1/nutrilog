@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'nutrition/bootstrap.min.css' %}">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Results View</h1>
+    {%for food in food_nutrition.items%}
+        <ul>
+            <li>Food name: {{food.1.name}} </li>
+            <li>Calories: {{food.1.calories}}g</li>
+            <li>Carbs: {{food.1.carbs}}g</li>
+            <li>Protein: {{food.1.protein}}g</li>
+            <li>Total Fat: {{food.1.fat}}g</li>
+            <li>Total Sugar: {{food.1.sugar}}g</li>
+        </ul>
+    {%endfor%}
+</body>
+</html>
