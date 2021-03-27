@@ -39,7 +39,7 @@ def success(request):
         fat = json_data_nutrition['foods'][0]['nf_total_fat']
         sugar = json_data_nutrition['foods'][0]['nf_sugars']
 
-        food_nutrition[food_name] = {'name': food_name, 'calories':calories, 
+        food_nutrition[food_name] = {'name': food_name, 'calories':calories,
             'carbs': carbs, 'protein': protein, 'fat': fat, 'sugar': sugar}
         print(food_nutrition[food_name])
     
