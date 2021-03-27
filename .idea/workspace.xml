@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="011b7bf3-b58f-4fbb-aaa8-01ae447230ee" name="Default Changelist" comment="Hi">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nutrition/static/nutrition/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition/static/nutrition/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nutrition/templates/nutrition/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition/templates/nutrition/success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nutrition/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nutrition/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
