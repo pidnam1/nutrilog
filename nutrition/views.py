@@ -17,7 +17,7 @@ def success(request):
   
 def results(request):
     food_list = Food.objects.all()
-    food_list = ['apple', 'orange', 'grapefruit']
+    
 
     food_nutrition = {}
     
