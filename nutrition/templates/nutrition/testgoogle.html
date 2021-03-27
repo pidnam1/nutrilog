@@ -1,0 +1,18 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'nutrition/bootstrap.min.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+<h1>Hello</h1>
+
+     <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    </div>
+</body>
+</html>
