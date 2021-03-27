@@ -9,15 +9,15 @@ from .models import Food
 def index(request):
     return render(request, 'nutrition/home.html')
 
-
-def success(request):
-    return render(request, 'nutrition/success.html')
-
 def typefile(request):
     return render(request, 'nutrition/typefile.html')
 
+def success(request):
+    return render(request, 'nutrition/success.html')
+  
 def results(request):
     food_list = Food.objects.all()
+    food_list = ['apple', 'orange', 'grapefruit']
 
     food_nutrition = {}
     
@@ -47,11 +47,12 @@ def results(request):
         #fat = json_data_nutrition['foods'][0]['nf_total_fat']
         #sugar = json_data_nutrition['foods'][0]['nf_sugars']
 
+
         food_nutrition[food.name] = {'name': food.name, 'calories':food.calories,
             'carbs': food.carbs, 'protein': food.protein, 'fat': food.fat, 'sugar': food.sugar}
         print(food_nutrition[food.name])
     
-    return render(request, 'nutrition/results.html', 
+    return render(request, 'nutrition/success.html', 
         {'food_nutrition': food_nutrition})
 
 def testgoogle(request):
