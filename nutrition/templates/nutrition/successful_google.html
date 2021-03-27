@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'nutrition/bootstrap.min.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+<h1>Success! Your items are:</h1>
+{% for answer in answers %}
+    <h2>{{answer}}</h2>
+{% endfor %}
+    </div>
+</body>
+</html>

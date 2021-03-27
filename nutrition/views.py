@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import requests
 import json
+from google.cloud import vision
+from .forms import *
 
 def index(request):
     return render(request, 'nutrition/home.html')
@@ -49,4 +51,35 @@ def results(request):
     
     return render(request, 'nutrition/results.html', 
         {'food_nutrition': food_nutrition})
+
+def testgoogle(request):
+
+
+    if request.method == 'POST':
+        form = ListForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('nutrition:successful_google')
+    else:
+        form = ListForm()
+    return render(request, 'nutrition/testgoogle.html', {"form":form})
+
+def successful_google(request):
+    lister = List.objects.latest('list_Img')
+    list = lister.list_Img
+    content = list.read()
+    client = vision.ImageAnnotatorClient()
+    image = vision.Image(content=content)
+
+    response = client.text_detection(image=image)
+    texts = response.text_annotations
+
+    answers = []
+    for text in texts[1:]:
+        print('\n"{}"'.format(text.description))
+        answers.append("{}".format(text.description))
+
+    return render(request, 'nutrition/successful_google.html', {'list': list, "answers": answers})
 
