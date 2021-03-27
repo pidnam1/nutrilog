@@ -8,14 +8,10 @@ from .forms import *
 def index(request):
     return render(request, 'nutrition/home.html')
 
-
-def success(request):
-    return render(request, 'nutrition/success.html')
-
 def typefile(request):
     return render(request, 'nutrition/typefile.html')
 
-def results(request):
+def success(request):
     food_list = ['apple', 'orange', 'grapefruit']
     food_nutrition = {}
     
@@ -45,11 +41,11 @@ def results(request):
         fat = json_data_nutrition['foods'][0]['nf_total_fat']
         sugar = json_data_nutrition['foods'][0]['nf_sugars']
 
-        food_nutrition[food_name] = {'name': food_name, 'calories':calories, 
+        food_nutrition[food_name] = {'name': food_name, 'calories':calories,
             'carbs': carbs, 'protein': protein, 'fat': fat, 'sugar': sugar}
         print(food_nutrition[food_name])
     
-    return render(request, 'nutrition/results.html', 
+    return render(request, 'nutrition/success.html', 
         {'food_nutrition': food_nutrition})
 
 def testgoogle(request):
