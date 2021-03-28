@@ -2,18 +2,36 @@
 <link rel="stylesheet" type="text/css" href="{% static 'nutrition/bootstrap.min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'nutrition/styles.css' %}">
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <div class="container">
+        <meta charset="UTF-8">
+        <title>NutriLog</title>
+        <nav class="navbar">
+            <a href="home.html" class="navbar-brand navbar-light background-light">nutri<span class="color-logo">log</span></a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">About</a>
+                </li>
+                <li>
+                    <button class="btn btn-outline-primary">Upload</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </head>
 <body>
-<h1 class = "page2header">NutriLog</h1>
 {% for food in food_nutrition.items %}
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-        <h1 class = "header"> {{food.1.name}} </h1>
+        <h1 class = "header"><b> {{food.1.name}} </b></h1>
         <p class = "macros">Calories: {{food.1.calories}}g</p>
             <p class = "macros">Carbs: {{food.1.carbs}}g</p>
             <p class = "macros">Protein: {{food.1.protein}}g</p>
@@ -21,9 +39,10 @@
             <p class = "macros">Total Sugar: {{food.1.sugar}}g</p>
     </div>
     <div class="flip-card-back">
-      <h1>John Doe</h1>
-      <p>Architect & Engineer</p>
-      <p>We love that guy</p>
+      <h1 class="backHeader">Tips</h1>
+      <p class="suggestedItem">[This is a resource which one can use. Here it is.]</p>
+      <p class="suggestedItem">[This is a resource which one can use. Here it is.]</p>
+      <p class="suggestedItem">[This is a resource which one can use. Here it is.]</p>
     </div>
   </div>
 </div>
