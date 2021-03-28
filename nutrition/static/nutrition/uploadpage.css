@@ -157,7 +157,24 @@
 
 #upload1{
     padding-top: 3%;
+
     width: 100%;
+}
+
+.btn {
+    background-color: white;
+    color: #287094;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    border-color: #287094;
+    border-style: solid;
+    border: 50%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    top: 50%;
+
 }
 
 
