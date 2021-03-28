@@ -32,11 +32,11 @@
   <div class="flip-card-inner">
     <div class="flip-card-front">
         <h1 class = "header"><b> {{food.1.name}} </b></h1>
-        <p class = "macros">Calories: {{food.1.calories}}g</p>
-            <p class = "macros">Carbs: {{food.1.carbs}}g</p>
-            <p class = "macros">Protein: {{food.1.protein}}g</p>
-            <p class = "macros">Total Fat: {{food.1.fat}}g</p>
-            <p class = "macros">Total Sugar: {{food.1.sugar}}g</p>
+        <p class = "macros">Carbs: {{food.1.carbs.0}}{{food.1.carbs.1}}</p>
+        <p class = "macros">Protein: {{food.1.protein.0}}{{food.1.protein.1}}</p>
+        <p class = "macros">Total Fat: {{food.1.fat.0}}{{food.1.fat.1}}</p>
+        <p class = "macros">Total Sugar: {{food.1.sugar.0}}{{food.1.sugar.1}}</p>
+        <p class="macros">Sodium: {{food.1.sodium.0}}{{food.1.sodium.1}}</p>
     </div>
     <div class="flip-card-back">
       <h1 class="backHeader">Tips</h1>
