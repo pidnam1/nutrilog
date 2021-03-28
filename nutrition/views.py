@@ -12,6 +12,9 @@ def index(request):
 def typefile(request):
     return render(request, 'nutrition/typefile.html')
 
+def home(request):
+    return render(request, 'nutrition/home.html')
+
 def success(request):
     return render(request, 'nutrition/success.html')
   
