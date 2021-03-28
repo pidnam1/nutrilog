@@ -11,3 +11,11 @@ class Food(models.Model):
     protein = models.DecimalField(max_digits=6, decimal_places=2)
     fat = models.DecimalField(max_digits=6, decimal_places=2)
     sugar = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.name
+class ListFood(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name

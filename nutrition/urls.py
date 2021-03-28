@@ -11,7 +11,9 @@ urlpatterns = [
     path('typefile/', views.typefile, name='typefile'),
     path('results/', views.results, name='results'),
     path('googletest/', views.testgoogle, name='testgoogle'),
-    path('successfulgoogle/', views.successful_google, name="successful_google")
+    path('successfulgoogle/', views.successful_google, name="successful_google"),
+    path('foodList/', views.indexView, name="foodlist"),
+    path('post/ajax/friend', views.postFood, name = "post_food")
 
 ]
 
