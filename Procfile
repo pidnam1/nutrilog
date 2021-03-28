@@ -1,1 +1,1 @@
-web: gunicorn testapp.wsgi
+web: gunicorn nutrilog.wsgi
