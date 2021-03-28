@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import requests
 import json
-from google.cloud import vision
+#from google.cloud import vision
 from .forms import *
 from .models import Food
 
