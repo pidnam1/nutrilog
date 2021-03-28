@@ -34,10 +34,16 @@
 <h1>Upload a Picture of Your Grocery List</h1>
 
         <div class="row">
+
      <form method = "post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <label class="btn btn-default">
+   Choose File
+  {{form.list_Img}}
+</label>
+
         <button class = "btn btn-primary" id="upload" type="submit">Upload</button>
+
     </form>
             </div>
         </div>
