@@ -145,6 +145,7 @@
 
 #upload{
     padding-top: 1%;
+
 }
 
 #new1{
@@ -166,8 +167,11 @@
 
 #upload1{
     padding-top: 1%;
+
     height: 6%;
-    width: 100%;
+    width: 110%;
+    margin: auto;
+    text-align: center;
 }
 
 
