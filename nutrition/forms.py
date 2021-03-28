@@ -6,6 +6,9 @@ class ListForm(forms.ModelForm):
     class Meta:
         model = List
         fields = ['list_Img']
+        widgets = {'list_Img': forms.FileInput(
+            attrs={'style': 'display: none;', 'class': 'form-control', 'required': False, }
+        )}
 
 
 class FoodForm(forms.ModelForm):

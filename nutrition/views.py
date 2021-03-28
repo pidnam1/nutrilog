@@ -4,8 +4,7 @@ import requests
 import json
 from django.http import JsonResponse
 from django.core import serializers
-#from google.cloud import vision
-#from google.cloud import vision
+from google.cloud import vision
 from .forms import *
 from .models import Food, ListFood, List
 
@@ -29,7 +28,7 @@ def postFood(request):
 
         form = FoodForm(request.POST)
         # save the data and after fetch the object in instance
-        if form.is_valid() and len(ListFood.objects.all()) < 5:
+        if form.is_valid() and len(ListFood.objects.all()) <= 3:
             instance = form.save()
             # serialize in new friend object in json
             ser_instance = serializers.serialize('json', [ instance, ])
@@ -38,7 +37,9 @@ def postFood(request):
             return JsonResponse({"instance": ser_instance}, status=200)
         else:
             # some form errors occured.
-
+            instance = form.save()
+            ay = ListFood(name = instance.name)
+            ay.save()
             return JsonResponse({"error": ""}, status=400)
 
 
@@ -58,16 +59,35 @@ def success(request):
 def results(request):
 
     list_food_list = []
-    food_list = ['apple', 'burger', 'soda', 'chips', 'cereal', 'carrots']
-    #if len(ListFood.objects.all()) > 0:
-        #list_food_list = ListFood.objects.all()
-        #for i in list_food_list:
-            #food_list.append(Food.objects.get(name=i.name))
-    #else:
-        #food_list = Food.objects.all()
+
+    ##googleapi implementation
+    lister = List.objects.last()
+
+    print(List.objects.latest('list_Img'))
+    list = lister.list_Img
+    content = list.read()
+    client = vision.ImageAnnotatorClient()
+    image = vision.Image(content=content)
+
+    response = client.text_detection(image=image)
+    texts = response.text_annotations
+
+    food_list = []
 
 
-    #food_list = Food.objects.all()
+    if len(ListFood.objects.all()) > 0:
+        list_food_list = ListFood.objects.all()
+        for i in list_food_list:
+            food_list.append(i.name)
+    else:
+        for text in texts[1:]:
+            print('\n"{}"'.format(text.description))
+            food_list.append("{}".format(text.description))
+
+
+
+
+
 
     food_nutrition = {}
     print("here ", food_list)
@@ -146,7 +166,7 @@ def results(request):
         context)
 
 def testgoogle(request):
-
+    ListFood.objects.all().delete()
 
     if request.method == 'POST':
         form = ListForm(request.POST, request.FILES)
@@ -154,7 +174,7 @@ def testgoogle(request):
         if form.is_valid():
             form.save()
 
-            return redirect('nutrition:successful_google')
+            return redirect('nutrition:results')
     else:
         form = ListForm()
     return render(request, 'nutrition/testgoogle.html', {"form":form})
