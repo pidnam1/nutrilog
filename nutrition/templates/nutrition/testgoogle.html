@@ -30,22 +30,24 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-<h1>Upload a Picture of Your Grocery List</h1>
+    <div class="row" id ="new2">
+<h1 style="padding-bottom: 5%;">Upload a Picture of Your Grocery List</h1>
 
-        <div class="row">
+        <div style = "padding-left: 20%;" class="row">
 
      <form method = "post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label class="btn btn-default">
+        <label class="btn btn-default" id="upload1">
    Choose File
   {{form.list_Img}}
 </label>
-
+    </div>
+         <div  class="row" id = "new1">
         <button class = "btn btn-primary" id="upload" type="submit">Upload</button>
 
     </form>
-            </div>
+             </div>
+
         </div>
     </div>
 </body>
