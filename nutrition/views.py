@@ -90,3 +90,5 @@ def successful_google(request):
 
     return render(request, 'nutrition/successful_google.html', {'list': list, "answers": answers})
 
+def about(request):
+    return render(request, 'nutrition/about.html')
