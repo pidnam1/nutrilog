@@ -111,6 +111,7 @@ padding-bottom: 2%;
 .btn {
     background-color: white;
     color: #287094;
+    font-size: 20px;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
     text-decoration: none;
@@ -118,8 +119,6 @@ padding-bottom: 2%;
     border-color: #287894;
     border-style: solid;
     border: 50%;
-
-
 }
 
 .nav-link {
