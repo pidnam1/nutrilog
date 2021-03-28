@@ -52,108 +52,59 @@ def home(request):
     return render(request, 'nutrition/home.html')
 
 def success(request):
-    # food_list = Food.objects.all()
-    #
-    # food_nutrition = {}
-    # print("it workeds")
-    # for food in food_list:
-    #     # get most likely food from search
-    #     x_app_id = '57c64f2a'
-    #     x_app_key = '089056dd34e16a5d99331d52e729498c'
-    #     x_remote_user_id = '0'
-    #
-    #     food_response = requests.get('https://trackapi.nutritionix.com/v2/search/instant?query=%s' % "fruit",
-    #                                  headers={"x-app-id": x_app_id, "x-app-key": x_app_key})
-    #     json_data_food = json.loads(food_response.text)
-    #
-    #     food_data = {}
-    #
-    #     for food in json_data_food["common"]:
-    #         # get nutritional info of food
-    #         nutrition_response = requests.post('https://trackapi.nutritionix.com/v2/natural/nutrients',
-    #                                            {"query": food["food_name"]},
-    #                                            headers={"x-app-id": x_app_id, "x-app-key": x_app_key})
-    #
-    #         json_data_nutrition = json.loads(nutrition_response.text)
-    #
-    #         print(json_data_nutrition)
-    #
-    #         calories = json_data_nutrition['foods'][0]['nf_calories']
-    #         carbs = json_data_nutrition['foods'][0]['nf_total_carbohydrate']
-    #         protein = json_data_nutrition['foods'][0]['nf_protein']
-    #         fat = json_data_nutrition['foods'][0]['nf_total_fat']
-    #         sugar = json_data_nutrition['foods'][0]['nf_sugars']
-    #
-    #         food_data[food["food_name"]] = {"calories" : calories, "carbs" : carbs, "protein" : protein, "fat" : fat, "sugar" : sugar}
-    #
-    #
-    #
-    #     # food_name = json_data_food["common"][0]["food_name"].capitalize()
-    #     #print(json_data_food)
-    #
-    #
-    #     #
-    #     # food_nutrition[food.name] = {'name': food.name, 'calories': food.calories,
-    #     #                              'carbs': food.carbs, 'protein': food.protein, 'fat': food.fat, 'sugar': food.sugar}
-    #     # print(food_nutrition[food.name])
-
+    
     return render(request, 'nutrition/success.html')
   
 def results(request):
 
     list_food_list = []
-    food_list = []
-    if len(ListFood.objects.all()) > 0:
-        list_food_list = ListFood.objects.all()
-        for i in list_food_list:
-            food_list.append(Food.objects.get(name=i.name))
-    else:
-        food_list = Food.objects.all()
+    food_list = ["apple", "orange", "grapefruit"]
+    #if len(ListFood.objects.all()) > 0:
+        #list_food_list = ListFood.objects.all()
+        #for i in list_food_list:
+            #food_list.append(Food.objects.get(name=i.name))
+    #else:
+        #food_list = Food.objects.all()
 
 
-    food_list = Food.objects.all()
-
-    
+    #food_list = Food.objects.all()
 
     food_nutrition = {}
+    print("here ", food_list)
 
     for food in food_list:
 
-        data_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&query=orange')
-    json_data = json.loads(data_request.text)
+        data_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&query=%s' % food)
+        json_data = json.loads(data_request.text)
 
-    #data_formatted = json.dumps(json_data, indent=4)
-    #food_name = json_data['foods'][0]['lowercaseDescription']
-    food = json_data['foods'][0]
-    #data_formatted = json.dumps(food, indent=4)
-    food_name = food['lowercaseDescription']
-    food_nutrients = food['foodNutrients']
+        #data_formatted = json.dumps(json_data, indent=4)
+        #food_name = json_data['foods'][0]['lowercaseDescription']
+        food = json_data['foods'][0]
+        #data_formatted = json.dumps(food, indent=4)
+        food_name = food['lowercaseDescription']
+        food_nutrients = food['foodNutrients']
 
-    nutrient_dict = {}
-    nutrient_dict["name"] = food_name
-    nutrient_dict["score"] = food["score"]
-    for nutrient in food_nutrients:
+        nutrient_dict = {}
+        nutrient_dict["name"] = food_name.capitalize()
+        nutrient_dict["score"] = food["score"]
+        for nutrient in food_nutrients:
 
-        nutrient_id = nutrient['nutrientId']
+            nutrient_id = nutrient['nutrientId']
 
-        if(nutrient['nutrientId'] == 1005):
-            nutrient_dict["carbs"] = [nutrient["value"], nutrient["unitName"].lower()]
-        elif(nutrient['nutrientId'] == 1003):
-            nutrient_dict["protein"] = [nutrient["value"], nutrient["unitName"].lower()]
-        elif(nutrient['nutrientId'] == 1004):
-            nutrient_dict["fat"] = [nutrient["value"], nutrient["unitName"].lower()]
-        elif(nutrient['nutrientId'] == 2000):
-            nutrient_dict["sugar"] = [nutrient["value"], nutrient["unitName"].lower()]
-        elif(nutrient['nutrientId'] == 1093):
-            nutrient_dict["sodium"] = [nutrient["value"], nutrient["unitName"].lower()]
-    
-<<<<<<< HEAD
+            if(nutrient['nutrientId'] == 1005):
+                nutrient_dict["carbs"] = [nutrient["value"], nutrient["unitName"].lower()]
+            elif(nutrient['nutrientId'] == 1003):
+                nutrient_dict["protein"] = [nutrient["value"], nutrient["unitName"].lower()]
+            elif(nutrient['nutrientId'] == 1004):
+                nutrient_dict["fat"] = [nutrient["value"], nutrient["unitName"].lower()]
+            elif(nutrient['nutrientId'] == 2000):
+                nutrient_dict["sugar"] = [nutrient["value"], nutrient["unitName"].lower()]
+            elif(nutrient['nutrientId'] == 1093):
+                nutrient_dict["sodium"] = [nutrient["value"], nutrient["unitName"].lower()]
+        food_nutrition[food_name] = nutrient_dict
+    print(food_nutrition)
     return render(request, 'nutrition/success.html', 
-        {'food_nutrition': nutrient_dict})
-=======
-    return render(request, 'nutrition/success.html',
         {'food_nutrition': food_nutrition})
->>>>>>> 1537f3b004c6cd5f1a8cc55815fd1e461860107c
 
 def testgoogle(request):
 
