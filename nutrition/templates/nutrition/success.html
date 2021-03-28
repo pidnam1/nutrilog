@@ -27,7 +27,7 @@
     </div>
 </head>
 <body>
-{% for food in food_nutrition.items %}
+{% for food, recommendation in foods %}
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
@@ -39,10 +39,8 @@
         <p class="macros">Sodium: {{food.1.sodium.0}}{{food.1.sodium.1}}</p>
     </div>
     <div class="flip-card-back">
-      <h1 class="backHeader">Tips</h1>
-      <p class="suggestedItem">[This is a resource which one can use. Here it is.]</p>
-      <p class="suggestedItem">[This is a resource which one can use. Here it is.]</p>
-      <p class="suggestedItem">[This is a resource which one can use. Here it is.]</p>
+      <h1 class="backHeader">Recommendation</h1>
+      <p class="suggestedItem">{{recommendation}}</p>
     </div>
   </div>
 </div>
