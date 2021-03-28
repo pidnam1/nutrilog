@@ -2,15 +2,54 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import requests
 import json
-# from google.cloud import vision
+from django.http import JsonResponse
+from django.core import serializers
+from google.cloud import vision
+#from google.cloud import vision
 from .forms import *
-from .models import Food
+from .models import Food, ListFood, List
 
 def index(request):
     return render(request, 'nutrition/home.html')
 
+def indexView(request):
+    ListFood.objects.all().delete()
+    form = FoodForm()
+    foods = ListFood.objects.all()
+
+
+    return render(request, "nutrition/foodlist.html", {"form": form, "foods": foods})
+
+def postFood(request):
+    # request should be ajax and method should be POST.
+
+
+    if request.is_ajax and request.method == "POST" and 'finished' not in request.POST:
+        # get the form data
+
+        form = FoodForm(request.POST)
+        # save the data and after fetch the object in instance
+        if form.is_valid() and len(ListFood.objects.all()) < 5:
+            instance = form.save()
+            # serialize in new friend object in json
+            ser_instance = serializers.serialize('json', [ instance, ])
+            # send to client side.
+
+            return JsonResponse({"instance": ser_instance}, status=200)
+        else:
+            # some form errors occured.
+
+            return JsonResponse({"error": ""}, status=400)
+
+
+    # some error occured
+    return JsonResponse({"error": ""}, status=400)
+
 def typefile(request):
     return render(request, 'nutrition/typefile.html')
+
+def home(request):
+    return render(request, 'nutrition/home.html')
 
 def success(request):
     # food_list = Food.objects.all()
@@ -61,7 +100,14 @@ def success(request):
     return render(request, 'nutrition/success.html')
   
 def results(request):
-    food_list = Food.objects.all()
+    list_food_list = []
+    food_list = []
+    if len(ListFood.objects.all()) > 0:
+        list_food_list = ListFood.objects.all()
+        for i in list_food_list:
+            food_list.append(Food.objects.get(name=i.name))
+    else:
+        food_list = Food.objects.all()
     
 
     food_nutrition = {}
@@ -132,8 +178,7 @@ def successful_google(request):
 
     return render(request, 'nutrition/successful_google.html', {'list': list, "answers": answers})
 
-
-
-
+def about(request):
+    return render(request, 'nutrition/about.html')
 
 

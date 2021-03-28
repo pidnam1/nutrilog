@@ -1,0 +1,58 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'nutrition/bootstrap.min.css' %}">
+<link rel="stylesheet" type = 'text/css' href="{% static 'nutrition/aboutstyles.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nutrilog</title>
+
+    <div class="container">   
+        <meta charset="UTF-8">
+        <title>nutrilog</title>
+        <nav class="navbar">
+            <a href="{% url 'nutrition:home' %}" class="navbar-brand navbar-light background-light">nutri<span class="color-logo">log</span></a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'nutrition:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'nutrition:about' %}">About</a>
+                </li>
+                <li>
+                    <button class="btn btn-outline-primary">Upload</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</head>
+<body>
+    <div class="container text-box">
+        <div class="row w-100 h-20 title">
+            About
+        </div>
+        <div class="row w-50 mx-auto description">
+            Nutrilog is a web application designed to help people without access to nutritional value
+            information find healthy food options. Built using HTML, CSS, Python, Django, and Heroku, 
+            Nutrilog harnesses Google's Cloud Vision API as well as the Nutritionix Database to provide
+            instant nutritional feedback. Users can upload a picture of a handwritten grocery list or
+            type one in manually to recieve the nutritional information for each food on the list, as well
+            as recommendations for healthier options. 
+        </div>
+        <div class="row w-100 description creator-tag">
+            Built for HooHacks 2021 <br>
+            by Mandip Bhadra, Wahaj Syed, Ana Borges, and Spencer Jackson
+            
+        </div>
+        <div class="row w-100 description github-link">
+            <a class="github-link" href="https://github.com/pidnam1/nutrilog">View our Github</a>
+        </div>
+    </div> 
+</body>
+</html>

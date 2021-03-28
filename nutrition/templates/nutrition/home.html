@@ -1,15 +1,61 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'nutrition/bootstrap.min.css' %}">
+<link rel="stylesheet" type = 'text/css' href="{% static 'nutrition/homestyles.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style type="text/css">
 
-    </style>
+    <div class="container">   
+        <meta charset="UTF-8">
+        <title>nutrilog</title>
+        <nav class="navbar">
+            <a href="{% url 'nutrition:home' %}" class="navbar-brand navbar-light background-light">nutri<span class="color-logo">log</span></a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'nutrition:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'nutrition:about' %}">About</a>
+                </li>
+                <li>
+                    <a class="btn btn-outline-primary" href="{% url 'nutrition:testgoogle' %}">Upload</a>
+
+                </li>
+            </ul>
+        </nav>
+    </div>
+
 </head>
 <body>
-
+    <div class="container">
+        <div class="row">
+            <div class="slogan">
+                Take the first step<br>
+                towards a<br>
+                healthier life with <br>
+                instant nutritional feedback <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="info-text">
+                Upload a photo of your grocery list and let our AI <br> do 
+                the work, or type in the list yourself!
+            </div>
+        </div>
+        <div class="row button-row h-auto">
+            <div class="col-md-2">
+                <a class="btn btn-default" href="{% url 'nutrition:testgoogle' %}">
+                    Upload
+                </a>
+            </div>
+            <div class="col-md-2 h-auto">
+                <a class="btn btn-outline-primary type-button" href="{% url 'nutrition:foodlist' %}">
+                    Type
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
