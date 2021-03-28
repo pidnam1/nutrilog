@@ -4,7 +4,7 @@ import requests
 import json
 from django.http import JsonResponse
 from django.core import serializers
-from google.cloud import vision
+#from google.cloud import vision
 #from google.cloud import vision
 from .forms import *
 from .models import Food, ListFood, List
