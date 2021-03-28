@@ -26,7 +26,7 @@ SECRET_KEY = '^8g9@z!1ea@c$q$w%2&(qi+3af5w($-cuon-g9s!u47-++3hx3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nutrilog2021.herokuapp.com']
 
 
 # Application definition
