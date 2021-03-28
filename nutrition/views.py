@@ -100,6 +100,7 @@ def success(request):
     return render(request, 'nutrition/success.html')
   
 def results(request):
+<<<<<<< HEAD
     list_food_list = []
     food_list = []
     if len(ListFood.objects.all()) > 0:
@@ -108,10 +109,14 @@ def results(request):
             food_list.append(Food.objects.get(name=i.name))
     else:
         food_list = Food.objects.all()
+=======
+
+    food_list = Food.objects.all()
+>>>>>>> 3cf0cf6 (yeet)
     
 
     food_nutrition = {}
-    
+
     for food in food_list:
 
         #get most likely food from search
@@ -143,7 +148,7 @@ def results(request):
             'carbs': food.carbs, 'protein': food.protein, 'fat': food.fat, 'sugar': food.sugar}
         print(food_nutrition[food.name])
     
-    return render(request, 'nutrition/success.html', 
+    return render(request, 'nutrition/success.html',
         {'food_nutrition': food_nutrition})
 
 def testgoogle(request):
