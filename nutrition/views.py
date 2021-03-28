@@ -100,7 +100,7 @@ def success(request):
     return render(request, 'nutrition/success.html')
   
 def results(request):
-<<<<<<< HEAD
+
     list_food_list = []
     food_list = []
     if len(ListFood.objects.all()) > 0:
@@ -109,10 +109,10 @@ def results(request):
             food_list.append(Food.objects.get(name=i.name))
     else:
         food_list = Food.objects.all()
-=======
+
 
     food_list = Food.objects.all()
->>>>>>> 3cf0cf6 (yeet)
+
     
 
     food_nutrition = {}
