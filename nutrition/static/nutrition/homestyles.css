@@ -29,7 +29,36 @@
     border-color: #287094;
     border-style: solid;
     border: 50%;
-    
+    padding-bottom: 25%;
+    padding-top: 5%;
+    top: 50%;
+
+}
+
+.button1{
+    background-color: white;
+    color: #287094;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: thin;
+    text-decoration: none;
+    border-radius: 12px;
+    border-width: thin;
+    border-color: #287094;
+    border-style: solid;
+    border: 10%;
+    top:20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-right: 15%;
+    padding-left: 15%;
+    position: relative;
+
+}
+
+.button1:hover {
+    background-color: #287094;
+    border-color: #287094;
+    color: white;
 }
 
 .nav-link {
