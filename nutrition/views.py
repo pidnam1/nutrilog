@@ -88,8 +88,10 @@ def results(request):
 
 
 
+
     food_nutrition = {}
     print("here ", food_list)
+    food_ids = []
 
     for food in food_list:
 
@@ -99,13 +101,17 @@ def results(request):
         #data_formatted = json.dumps(json_data, indent=4)
         #food_name = json_data['foods'][0]['lowercaseDescription']
         food = json_data['foods'][0]
+        
         #data_formatted = json.dumps(food, indent=4)
         food_name = food['lowercaseDescription']
         food_nutrients = food['foodNutrients']
-
+        food_ids.append(food['fdcId'])
+        #print(food_ids)
         nutrient_dict = {}
         nutrient_dict["name"] = food_name.capitalize()
         nutrient_dict["score"] = food["score"]
+        #print(food['fdcId'])
+        #print(food['score'])
         for nutrient in food_nutrients:
 
             nutrient_id = nutrient['nutrientId']
@@ -121,9 +127,43 @@ def results(request):
             elif(nutrient['nutrientId'] == 1093):
                 nutrient_dict["sodium"] = [nutrient["value"], nutrient["unitName"].lower()]
         food_nutrition[food_name] = nutrient_dict
-    print(food_nutrition)
+    #print(food_nutrition)
+
+    data_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&query=apple')
+    json_data = json.loads(data_request.text)
+    #json_format = json.dumps(json_data, indent=4)
+
+    #print(json_data)
+
+    
+    
+    for food in food_list:
+        initial_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&query=%s' % food)
+        json_data = json.loads(initial_request.text)
+        food_id = json_data['foods'][0]['fdcId']
+        food_ids.append(food_id)
+    print(food_ids)
+
+    final_recs = []
+    for id in food_ids:
+        check_ids = int(id)+1
+        try:
+            data_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/?fdcIds=%s&api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&format=abridged' % check_ids)
+            json_data = json.loads(data_request.text)
+            #print(json_data[0]['description'])
+            
+            final_recs.append(json_data[0]['description'])
+        except: 
+            final_recs.append("Food not found")
+
+    final_recs = final_recs[0:len(final_recs)//2] 
+    print(final_recs)
+    mylist = zip(food_nutrition.items(), final_recs)
+    context = {
+        'foods': mylist
+    }
     return render(request, 'nutrition/success.html', 
-        {'food_nutrition': food_nutrition})
+        context)
 
 def testgoogle(request):
     ListFood.objects.all().delete()
