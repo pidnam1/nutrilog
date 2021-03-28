@@ -29,7 +29,7 @@
     border-color: #287094;
     border-style: solid;
     border: 50%;
-    
+
 }
 
 .nav-link {
@@ -106,7 +106,21 @@
     width: 100%;
     height: 5%;
     font-size: auto;
-    
+
+}
+
+#idek{
+    padding-top: 1%;
+}
+
+#add{
+    margin: auto;
+    background-color: #287094;
+    color: white;
+    font-size: auto;
+}
+.btn-primary{
+    margin: auto;
 }
 
 .type-button:hover{
@@ -118,4 +132,15 @@
 .button-row {
     margin-left: 3%;
     margin-top: 3%;
+}
+.row{
+    width:50%;
+    margin: auto;
+    padding-top: 10%
+}
+
+#second{
+    width:45%;
+    margin: auto;
+    padding-top: 1%
 }

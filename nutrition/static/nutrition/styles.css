@@ -5,8 +5,8 @@ background-color: transparent;
 margin: auto;
 padding-top: 3%;
 padding-bottom: 2%;
-width: 50%;
-height: 42%;
+height: 50%;
+width: 40%;
 border: 0px solid #f1f1f1;
 perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
