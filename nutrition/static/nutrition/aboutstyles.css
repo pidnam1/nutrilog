@@ -1,0 +1,84 @@
+.navbar {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav {
+    vertical-align: auto;
+}
+
+.navbar-brand {
+    font-size: xx-large;
+    color: #023246;
+    font-style:italic;
+}
+.color-logo {
+    color:#287094;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.btn {
+    background-color: white;
+    color: #287094;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    border-color: #287094;
+    border-style: solid;
+    border: 50%;
+    
+}
+
+.nav-link {
+    color: #023246;
+    font-weight:500;
+}
+.nav-link:hover{
+    color: #023246;
+    text-decoration: underline;
+    text-decoration-color: #287094;
+    text-underline-offset: 25%;
+    text-decoration-thickness: 10%;
+}
+
+.navbar-brand:hover{
+    color: #023246;
+}
+
+.btn:hover{
+    background-color: #287094;
+    border-color: #287094;
+}
+
+.title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: #023246;
+    font-size: 150%;
+    justify-content: center;
+}
+
+.description {
+    font-family: 'Open Sans', sans-serif;
+    font-weight:normal;
+    text-decoration: none;
+    color: #023246;
+    font-size: 100%;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.creator-tag {
+    color: #287094
+}
+
+.github-link {
+
+    color: #287094;
+    text-decoration: underline;
+}
