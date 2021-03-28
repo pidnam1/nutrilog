@@ -121,6 +121,7 @@
 }
 .btn-primary{
     margin: auto;
+    text-align: center;
 }
 
 .type-button:hover{
@@ -141,9 +142,9 @@
 }
 
 #upload{
-    width:45%;
+    width:100%;
     margin: auto;
-    padding-top: 1%;
+    padding-top: 3%;
     text-align: center;
 }
 
@@ -151,3 +152,4 @@
     display: inline-block;
     text-align: center;
 }
+
