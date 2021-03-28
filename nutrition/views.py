@@ -4,8 +4,7 @@ import requests
 import json
 from django.http import JsonResponse
 from django.core import serializers
-#from google.cloud import vision
-#from google.cloud import vision
+from google.cloud import vision
 from .forms import *
 from .models import Food, ListFood, List
 
@@ -58,7 +57,22 @@ def success(request):
 def results(request):
 
     list_food_list = []
-    food_list = ["apple", "orange", "grapefruit"]
+
+    ##googleapi implementation
+    lister = List.objects.latest('list_Img')
+    list = lister.list_Img
+    content = list.read()
+    client = vision.ImageAnnotatorClient()
+    image = vision.Image(content=content)
+
+    response = client.text_detection(image=image)
+    texts = response.text_annotations
+
+    food_list = []
+    for text in texts[1:]:
+        print('\n"{}"'.format(text.description))
+        food_list.append("{}".format(text.description))
+    #food_list = ["apple", "orange", "grapefruit"]
     #if len(ListFood.objects.all()) > 0:
         #list_food_list = ListFood.objects.all()
         #for i in list_food_list:
