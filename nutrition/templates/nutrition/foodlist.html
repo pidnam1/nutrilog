@@ -1,37 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<link rel="stylesheet" href="{% static 'nutrition/bootstrap.min.css' %}">
+<link rel="stylesheet" type = 'text/css' href="{% static 'nutrition/foodList.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
 
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %}{% endblock title %}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <div class="container">
+        <meta charset="UTF-8">
+        <title>nutrilog</title>
+        <nav class="navbar">
+            <a href="{% url 'nutrition:home' %}" class="navbar-brand navbar-light background-light">nutri<span class="color-logo">log</span></a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'nutrition:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'nutrition:about' %}">About</a>
+                </li>
+                <li>
+                    <a class="btn btn-outline-primary" href="{% url 'nutrition:testgoogle' %}">Upload</a>
+
+                </li>
+            </ul>
+        </nav>
+    </div>
 
 </head>
 
 <body>
-<div class="container-fluid">
+<div class="container">
+    <h3 style="text-align:center; padding-top: 5%;"> Fill out 5-6 Grocery Items</h3>
     <form id="food-form">
+
         <div class="row">
             {% csrf_token %}
             {% for field in form %}
-            <div class="form-group col-4">
-                <label class="col-12">{{ field.label }}</label>
+
+
                 {{ field }}
-            </div>
+
             {% endfor %}
-            <input type="submit" class="btn btn-primary" value="Add Food" />
-        </div>
+            <div class="row" id="idek">
+            <button type="submit" class="btn btn-primary" id="add">Add Food</button>
+            </div>
     <form>
+        </div>
 </div>
 <hr />
 
 <div class="container-fluid">
+    <div class="row" id="second">
     <table class="table table-striped table-sm" id="my_foods">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Grocery List</th>
             </tr>
         </thead>
         <tbody>
@@ -43,10 +67,10 @@
         {% endfor %}
         </tbody>
     </table>
-    <form id="button-form">
-    <button div class="btn btn-primary" name="finished" id="finished" type="submit">Finish</button>
-    </form>
-</div>
+
+
+
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
