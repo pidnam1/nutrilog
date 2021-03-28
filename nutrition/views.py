@@ -5,6 +5,7 @@ import json
 from django.http import JsonResponse
 from django.core import serializers
 from google.cloud import vision
+#from google.cloud import vision
 from .forms import *
 from .models import Food, ListFood, List
 
@@ -46,6 +47,9 @@ def postFood(request):
 
 def typefile(request):
     return render(request, 'nutrition/typefile.html')
+
+def home(request):
+    return render(request, 'nutrition/home.html')
 
 def success(request):
     return render(request, 'nutrition/success.html')
@@ -129,3 +133,5 @@ def successful_google(request):
 
     return render(request, 'nutrition/successful_google.html', {'list': list, "answers": answers})
 
+def about(request):
+    return render(request, 'nutrition/about.html')
