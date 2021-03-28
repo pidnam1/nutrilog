@@ -135,3 +135,4 @@ def successful_google(request):
 
 def about(request):
     return render(request, 'nutrition/about.html')
+
