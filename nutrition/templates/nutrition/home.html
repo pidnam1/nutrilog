@@ -20,7 +20,8 @@
                     <a class="nav-link" href="{% url 'nutrition:about' %}">About</a>
                 </li>
                 <li>
-                    <button class="btn btn-outline-primary">Upload</button>
+                    <a class="btn btn-outline-primary" href="{% url 'nutrition:testgoogle' %}">Upload</a>
+
                 </li>
             </ul>
         </nav>
@@ -45,14 +46,14 @@
         </div>
         <div class="row button-row h-auto">
             <div class="col-md-2">
-                <button class="btn btn-default">
+                <a class="btn btn-default" href="{% url 'nutrition:testgoogle' %}">
                     Upload
-                </button>
+                </a>
             </div>
             <div class="col-md-2 h-auto">
-                <button class="btn btn-outline-primary type-button">
+                <a class="btn btn-outline-primary type-button" href="{% url 'nutrition:foodlist' %}">
                     Type
-                </button>
+                </a>
             </div>
         </div>
     </div>
