@@ -43,13 +43,14 @@
         {% endfor %}
         </tbody>
     </table>
-
+    <form id="button-form">
     <button div class="btn btn-primary" name="finished" id="finished" type="submit">Finish</button>
-
+    </form>
 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 <script>
     /*
@@ -59,6 +60,7 @@
     */
     $("#food-form").submit(function (e) {
         // preventing from page reload and default actions
+
         e.preventDefault();
         // serialize the data for sending the form data.
         var serializedData = $(this).serialize();
@@ -77,6 +79,7 @@
                 // display the newly friend to table.
                 var instance = JSON.parse(response["instance"]);
                 var fields = instance[0]["fields"];
+
                 $("#my_foods tbody").prepend(
                     `<tr>
                     <td>${fields["name"]||""}</td>
@@ -85,10 +88,13 @@
             },
             error: function (response) {
                 // alert the error if any error occured
-                alert(response["responseJSON"]["error"]);
+                window.location.replace('/nutrition/results');
+
             }
         })
     })
+
+
 </script>
 
 </body>
