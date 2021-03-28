@@ -160,7 +160,7 @@ def testgoogle(request):
         if form.is_valid():
             form.save()
 
-            return redirect('nutrition:successful_google')
+            return redirect('nutrition:results')
     else:
         form = ListForm()
     return render(request, 'nutrition/testgoogle.html', {"form":form})
