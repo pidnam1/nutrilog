@@ -160,18 +160,25 @@
     padding-bottom: 3%;
 }
 #new3{
-
+    left: 50%;
     padding-top: 5%;
 
 }
 
 #upload1{
     padding-top: 1%;
-
+    left: 50%;
+    right: 50%;
     height: 6%;
+    margin-left: 50%;
     width: 110%;
     margin: auto;
     text-align: center;
+}
+
+.form{
+    text-align: center;
+
 }
 
 
