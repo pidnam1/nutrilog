@@ -60,17 +60,7 @@ def results(request):
 
     list_food_list = []
 
-    ##googleapi implementation
-    lister = List.objects.last()
-
-    print(List.objects.latest('list_Img'))
-    list = lister.list_Img
-    content = list.read()
-    client = vision.ImageAnnotatorClient()
-    image = vision.Image(content=content)
-
-    response = client.text_detection(image=image)
-    texts = response.text_annotations
+    
 
     food_list = []
 
@@ -80,9 +70,21 @@ def results(request):
         for i in list_food_list:
             food_list.append(i.name)
     else:
-        for text in texts[1:]:
-            print('\n"{}"'.format(text.description))
-            food_list.append("{}".format(text.description))
+        
+        ##googleapi implementation
+        lister = List.objects.last()
+
+        print(List.objects.latest('list_Img'))
+        list = lister.list_Img
+        content = list.read()
+        client = vision.ImageAnnotatorClient()
+        image = vision.Image(content=content)
+
+        response = client.text_detection(image=image)
+        texts = response.text_annotations
+            for text in texts[1:]:
+                print('\n"{}"'.format(text.description))
+                food_list.append("{}".format(text.description))
 
 
 
