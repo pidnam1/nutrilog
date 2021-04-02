@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="011b7bf3-b58f-4fbb-aaa8-01ae447230ee" name="Default Changelist" comment="Hi">
+      <change afterPath="$PROJECT_DIR$/media/images/IMG_0525_0LBPArB.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/IMG_0525_N11gb2n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/IMG_0525_Xrwppwb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/IMG_0525_gTwsxpR.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/IMG_0526_JGcX3bu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/IMG_0526_c1nSU7Q.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/IMG_0526_zMefwHG.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/IMG_0526_zbuMxDR.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nutrition/static/nutrition/homestyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition/static/nutrition/homestyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nutrition/static/nutrition/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition/static/nutrition/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nutrition/templates/nutrition/foodlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition/templates/nutrition/foodlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nutrition/templates/nutrition/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition/templates/nutrition/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nutrilog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/nutrilog/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nutrition/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +46,28 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="011b7bf3-b58f-4fbb-aaa8-01ae447230ee" name="Default Changelist" comment="" />
@@ -69,14 +91,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Hi" />
     <option name="LAST_COMMIT_MESSAGE" value="Hi" />
   </component>
