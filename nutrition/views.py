@@ -82,9 +82,9 @@ def results(request):
 
         response = client.text_detection(image=image)
         texts = response.text_annotations
-            for text in texts[1:]:
-                print('\n"{}"'.format(text.description))
-                food_list.append("{}".format(text.description))
+        for text in texts[1:]:
+            print('\n"{}"'.format(text.description))
+            food_list.append("{}".format(text.description))
 
 
 
@@ -96,39 +96,45 @@ def results(request):
     food_ids = []
 
     for food in food_list:
-
-        data_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&query=%s' % food)
-        json_data = json.loads(data_request.text)
+        ### Trying to get API Data unless it cant read text
+        try:
+            data_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&query=%s' % food)
+            json_data = json.loads(data_request.text)
 
         #data_formatted = json.dumps(json_data, indent=4)
         #food_name = json_data['foods'][0]['lowercaseDescription']
-        food = json_data['foods'][0]
+
+            food = json_data['foods'][0]
+
         
         #data_formatted = json.dumps(food, indent=4)
-        food_name = food['lowercaseDescription']
-        food_nutrients = food['foodNutrients']
-        food_ids.append(food['fdcId'])
+            food_name = food['lowercaseDescription']
+            food_nutrients = food['foodNutrients']
+            food_ids.append(food['fdcId'])
         #print(food_ids)
-        nutrient_dict = {}
-        nutrient_dict["name"] = food_name.capitalize()
-        nutrient_dict["score"] = food["score"]
+            nutrient_dict = {}
+            nutrient_dict["name"] = food_name.capitalize()
+            nutrient_dict["score"] = food["score"]
         #print(food['fdcId'])
         #print(food['score'])
-        for nutrient in food_nutrients:
+            for nutrient in food_nutrients:
 
-            nutrient_id = nutrient['nutrientId']
+                nutrient_id = nutrient['nutrientId']
 
-            if(nutrient['nutrientId'] == 1005):
-                nutrient_dict["carbs"] = [nutrient["value"], nutrient["unitName"].lower()]
-            elif(nutrient['nutrientId'] == 1003):
-                nutrient_dict["protein"] = [nutrient["value"], nutrient["unitName"].lower()]
-            elif(nutrient['nutrientId'] == 1004):
-                nutrient_dict["fat"] = [nutrient["value"], nutrient["unitName"].lower()]
-            elif(nutrient['nutrientId'] == 2000):
-                nutrient_dict["sugar"] = [nutrient["value"], nutrient["unitName"].lower()]
-            elif(nutrient['nutrientId'] == 1093):
-                nutrient_dict["sodium"] = [nutrient["value"], nutrient["unitName"].lower()]
-        food_nutrition[food_name] = nutrient_dict
+                if(nutrient['nutrientId'] == 1005):
+                    nutrient_dict["carbs"] = [nutrient["value"], nutrient["unitName"].lower()]
+                elif(nutrient['nutrientId'] == 1003):
+                    nutrient_dict["protein"] = [nutrient["value"], nutrient["unitName"].lower()]
+                elif(nutrient['nutrientId'] == 1004):
+                    nutrient_dict["fat"] = [nutrient["value"], nutrient["unitName"].lower()]
+                elif(nutrient['nutrientId'] == 2000):
+                    nutrient_dict["sugar"] = [nutrient["value"], nutrient["unitName"].lower()]
+                elif(nutrient['nutrientId'] == 1093):
+                    nutrient_dict["sodium"] = [nutrient["value"], nutrient["unitName"].lower()]
+            food_nutrition[food_name] = nutrient_dict
+        except:
+            food_name = "Food not Found"
+            food_nutrition[food_name] = "N/A"
     #print(food_nutrition)
 
     data_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&query=apple')
@@ -140,11 +146,14 @@ def results(request):
     
     
     for food in food_list:
-        initial_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&query=%s' % food)
-        json_data = json.loads(initial_request.text)
-        food_id = json_data['foods'][0]['fdcId']
-        food_ids.append(food_id)
-    print(food_ids)
+        try:
+            initial_request = requests.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=4AFvuuDgN33gPTYAYp1bfGSTq7y7sksNFkproiuN&query=%s' % food)
+            json_data = json.loads(initial_request.text)
+            food_id = json_data['foods'][0]['fdcId']
+            food_ids.append(food_id)
+            print(food_ids)
+        except:
+            food_ids.append(-1)
 
     final_recs = []
     for id in food_ids:
